@@ -1,0 +1,17 @@
+!.gitignore
+.venv/
+__pycache__/
+*.py[cod]
+.idea/
+.DS_Store
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+dist/
+build/
+data/*
+!data/.gitkeep
+miniproject-evidence.pdf
+miniproject-evidence.html
+
+# Keep results and figures eligible for version control.
