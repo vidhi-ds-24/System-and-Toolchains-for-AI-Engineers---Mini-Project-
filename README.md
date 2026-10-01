@@ -21,7 +21,7 @@ The virtual environment is `.venv`; activating it displays `(miniproj)`.
 ## Ridge Training
 
 ```sh
-uv run python -m src.ridge
+make ridge
 uv run python -m unittest discover -s tests
 ```
 

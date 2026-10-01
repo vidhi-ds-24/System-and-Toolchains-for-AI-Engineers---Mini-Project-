@@ -5,7 +5,7 @@ DATA_URL := https://kitchin-services.cheme.cmu.edu/f26-06763/data
 DATA_FILES := tep_fault_free_training.parquet tep_faulty_training_runs01-20.parquet
 EVIDENCE_URL := https://kitchingroup.cheme.cmu.edu/f26-06763/miniproject-evidence.py
 
-.PHONY: setup data evidence
+.PHONY: setup data ridge evidence
 
 setup:
 	$(UV) venv --allow-existing --prompt miniproj .venv
@@ -21,6 +21,9 @@ data:
 		fi; \
 	done
 	@cd data && shasum -a 256 -c SHA256SUMS
+
+ridge:
+	$(UV) run python -m src.ridge
 
 evidence:
 	@test -n "$(TEAM)" || { echo 'Set TEAM="Team name"'; exit 1; }
