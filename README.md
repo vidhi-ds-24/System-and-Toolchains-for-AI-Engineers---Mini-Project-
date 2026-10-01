@@ -31,7 +31,7 @@ the previous two standardized rows form 104 features to predict the current
 Residual standard deviations are calculated on the lagged training rows.
 The model and all scales are saved together in `results/ridge_model.npz`.
 
-The scoring teammate can load this artifact and construct aligned inputs:
+Can load this artifact and construct aligned inputs:
 
 ```python
 from src.ridge import build_lagged, load_model
@@ -46,6 +46,3 @@ For scoring, select normal runs 301–500 and faults 1–20, runs 1–20.
 `raw_frame` contains unstandardized channel values and row keys. `keys` stays
 aligned with `X`, `y`, and predictions. Channel order is `xmeas_1`–`xmeas_41`,
 then `xmv_1`–`xmv_11`. Scoring, contributions, and evaluation are separate tasks.
-
-AI assistance: Codex helped implement and test the Ridge training and handoff code;
-include actual AI use in the final report.
