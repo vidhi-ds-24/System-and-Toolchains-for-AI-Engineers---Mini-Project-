@@ -8,6 +8,7 @@ EVIDENCE_URL := https://kitchingroup.cheme.cmu.edu/f26-06763/miniproject-evidenc
 .PHONY: setup data evidence
 
 setup:
+	$(UV) venv --allow-existing --prompt miniproj .venv
 	$(UV) lock
 	$(UV) sync --locked
 
