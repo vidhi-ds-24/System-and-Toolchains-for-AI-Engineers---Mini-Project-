@@ -22,7 +22,6 @@ The virtual environment is `.venv`; activating it displays `(miniproj)`.
 
 ```sh
 make ridge
-uv run python -m unittest discover -s tests
 ```
 
 Training uses normal runs 1–300. Each channel is standardized with the mean and
@@ -47,9 +46,6 @@ For scoring, select normal runs 301–500 and faults 1–20, runs 1–20.
 `raw_frame` contains unstandardized channel values and row keys. `keys` stays
 aligned with `X`, `y`, and predictions. Channel order is `xmeas_1`–`xmeas_41`,
 then `xmv_1`–`xmv_11`. Scoring, contributions, and evaluation are separate tasks.
-
-Validation: three unit tests pass; all 298,800 eligible rows meet the official
-reference's score tolerance (maximum relative error: 2.54e-10).
 
 AI assistance: Codex helped implement and test the Ridge training and handoff code;
 include actual AI use in the final report.
