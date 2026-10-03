@@ -22,7 +22,7 @@ The virtual environment is `.venv`; activating it displays `(miniproj)`.
 
 ```sh
 make ridge        # Train the model
-make ridge-score  # Generate scores and per-channel contributions
+make ridge-score  # Generate the required four-column score file
 make ridge-plot   # Plot the scores
 ```
 
