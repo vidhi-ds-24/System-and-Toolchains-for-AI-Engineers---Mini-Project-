@@ -5,7 +5,7 @@ DATA_URL := https://kitchin-services.cheme.cmu.edu/f26-06763/data
 DATA_FILES := tep_fault_free_training.parquet tep_faulty_training_runs01-20.parquet
 EVIDENCE_URL := https://kitchingroup.cheme.cmu.edu/f26-06763/miniproject-evidence.py
 
-.PHONY: setup data ridge ridge-score ridge-plot ridge-evaluate ridge-diagnose evidence pca
+.PHONY: setup data ridge ridge-score ridge-plot ridge-evaluate ridge-diagnose evidence pca pca-evaluate pca-diagnose pca-plot
 
 setup:
 	$(UV) venv --allow-existing --prompt miniproj .venv
@@ -44,3 +44,12 @@ evidence:
 
 pca: data
 	$(UV) run python src/pca.py
+
+pca-evaluate:
+	$(UV) run python -m src.evaluate_pca
+
+pca-diagnose: pca-evaluate
+	$(UV) run python -m src.diagnose_pca
+
+pca-plot: pca-evaluate
+	$(UV) run python -m src.plot_pca
