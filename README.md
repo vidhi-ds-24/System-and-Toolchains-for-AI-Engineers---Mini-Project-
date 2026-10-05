@@ -13,6 +13,7 @@ results/    Output files
 ```sh
 make setup
 make data
+make pca
 make evidence IDS="id1 id2 id3 id4" TEAM="Team name"
 ```
 
