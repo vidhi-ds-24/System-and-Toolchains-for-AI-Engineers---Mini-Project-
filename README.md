@@ -17,6 +17,8 @@ make pca          # Generate PCA scores; also runs make data
 make ridge        # Train Ridge and save results/ridge_model.npz
 make ridge-score  # Generate results/scores_ridge.parquet
 make ridge-plot   # Generate results/ridge_fault1_plot.png
+make ridge-evaluate  # Write Ridge rows to results/thresholds.csv and results/detection.csv
+make ridge-diagnose  # Run ridge-evaluate, then write Ridge rows to results/contributions.csv
 ```
 
 After all required result files are ready, generate the evidence PDF:

@@ -5,7 +5,7 @@ DATA_URL := https://kitchin-services.cheme.cmu.edu/f26-06763/data
 DATA_FILES := tep_fault_free_training.parquet tep_faulty_training_runs01-20.parquet
 EVIDENCE_URL := https://kitchingroup.cheme.cmu.edu/f26-06763/miniproject-evidence.py
 
-.PHONY: setup data ridge ridge-score ridge-plot evidence pca
+.PHONY: setup data ridge ridge-score ridge-plot ridge-evaluate ridge-diagnose evidence pca
 
 setup:
 	$(UV) venv --allow-existing --prompt miniproj .venv
@@ -30,6 +30,12 @@ ridge-score:
 
 ridge-plot:
 	$(UV) run python -m src.plot_ridge_score
+
+ridge-evaluate:
+	$(UV) run python -m src.evaluate_ridge
+
+ridge-diagnose: ridge-evaluate
+	$(UV) run python -m src.diagnose_ridge
 
 evidence:
 	@test -n "$(TEAM)" || { echo 'Set TEAM="Team name"'; exit 1; }
