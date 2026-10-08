@@ -1,6 +1,8 @@
 .DEFAULT_GOAL := setup
 
 UV ?= uv
+IDS := wenyinh cosettez vidhikot mbbhatt
+TEAM := power rangers STC
 DATA_URL := https://kitchin-services.cheme.cmu.edu/f26-06763/data
 DATA_FILES := tep_fault_free_training.parquet tep_faulty_training_runs01-20.parquet
 EVIDENCE_URL := https://kitchingroup.cheme.cmu.edu/f26-06763/miniproject-evidence.py
@@ -38,8 +40,6 @@ ridge-diagnose: ridge-evaluate
 	$(UV) run python -m src.diagnose_ridge
 
 evidence:
-	@test -n "$(TEAM)" || { echo 'Set TEAM="Team name"'; exit 1; }
-	@set -- $(IDS); test "$$#" -eq 4 || { echo 'Set IDS="id1 id2 id3 id4"'; exit 1; }
 	$(UV) run --no-project $(EVIDENCE_URL) --andrew-ids $(IDS) --team "$(TEAM)"
 
 pca: data

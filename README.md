@@ -27,5 +27,5 @@ make ridge-diagnose  # Run ridge-evaluate, then write Ridge rows to results/cont
 After all required result files are ready, generate the evidence PDF:
 
 ```sh
-make evidence IDS="id1 id2 id3 id4" TEAM="Team name"
+make evidence
 ```
